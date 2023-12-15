@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Función para obtener y mostrar el valor del dólar oficial
     function obtenerYMostrarDolarOficial() {
-        fetch("https://dolarapi.com/v1/dolares/oficial")
+        fetch("https://dolarapi.com/v1/dolares/contadoconliqui")
             .then(response => response.json())
             .then(data => {
                 const valorDolarCompra = data.compra;
                 const valorDolarVenta = data.venta;
                 const fechaActualizacion = new Date(data.fechaActualizacion).toLocaleString();
-                mostrarValorDolar(`Valor del dolar (Compra): $${valorDolarCompra} | Valor del dolar (Venta): $${valorDolarVenta}`);
+                mostrarValorDolar(`Valor del dolar CCL (Compra): $${valorDolarCompra} Valor del dolar CCL(Venta):  $${valorDolarVenta}`);
                 mostrarFechaActualizacion(fechaActualizacion, "fechaDolarOficial");
             })
             .catch(error => console.error("Error al obtener el valor del dolar oficial:", error));
